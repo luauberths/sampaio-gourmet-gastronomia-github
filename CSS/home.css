@@ -27,7 +27,7 @@
 #title-start.fade-out, #title-end.fade-out { opacity: 0; }
 .hero-subtitle { color: var(--gold); }
 .hero-description-container { width: 100%; max-width: 660px; margin-top: 20px; }
-.hero-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 26px; }
+.hero-buttons { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 26px; }
 .quote-button, .whatsapp-button {
     display: inline-flex;
     align-items: center;
