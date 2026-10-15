@@ -1,5 +1,5 @@
 .hero-content { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; min-width: 0; }
-.instagram-container { display: flex; align-items: center; gap: 0px; margin-bottom: 24px; }
+.instagram-container { display: flex; align-items: center; gap: 8px; margin-bottom: 24px; }
 .instagram-icon { display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; }
 .instagram-icon img { width: 100%; height: 100%; object-fit: contain; }
 .instagram-link { font: 500 13px 'Montserrat', sans-serif; text-decoration: none; text-transform: none; color: var(--brown); }
