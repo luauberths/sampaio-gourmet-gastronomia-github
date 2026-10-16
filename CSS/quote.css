@@ -1,26 +1,16 @@
 .form-section { display: flex; align-items: flex-start; justify-content: center; }
 .quote-content { width: 100%;  min-width: 0; }
+.quote-subtitle { margin: 0; font: 400 14px/1.65 'Montserrat', sans-serif; opacity: .85; }
 .quote-container { width: 100%; min-width: 0; padding: clamp(20px, 3.5vw, 34px); background: var(--cream); border: 1px solid var(--panel-border); border-radius: 16px; }
 .quote-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 22px; min-width: 0; }
 .form-group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.form-group.full-width, .form-group:has(> #menu-type) { grid-column: 1 / -1; }
+.form-group.full-width { grid-column: 1 / -1; }
 .form-group label { font: 600 13px/1.5 'Montserrat', sans-serif; color: var(--brown); }
 .form-group input, .form-group select, .form-group textarea {
     display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 46px;
-    padding: 12px 14px; font: 400 var(--body-copy-size)/1.4 Georgia, 'Times New Roman', serif;
+    padding: 12px 14px; font: 400 14px/1.4 Georgia, serif;
     color: var(--brown); background: var(--cream); border: 1px solid rgba(230, 216, 197, .9);
     border-radius: 9px; outline-offset: 2px; transition: border-color .25s ease, box-shadow .25s ease;
-}
-/* Mantém o seletor nativo, com uma seta consistente e afastada da borda. */
-.form-group select {
-    -webkit-appearance: none;
-    appearance: none;
-    padding-right: 54px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23463a2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 7 6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 22px center;
-    background-size: 16px 16px;
-    cursor: pointer;
 }
 .date-input-wrap {
     width: 100%;

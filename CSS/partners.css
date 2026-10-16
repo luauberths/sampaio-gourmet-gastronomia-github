@@ -1,6 +1,7 @@
 .partners-section { display: flex; flex-direction: column; align-items: center; }
 .partners-container { display: flex; flex-direction: column; width: 100%; min-width: 0; }
 .partners-header { max-width: 720px; }
+.partners-subtitle { margin: 0; font: 400 14px/1.65 'Montserrat', sans-serif; opacity: .85; }
 .partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 22px; width: 100%; }
 .partner-card {
     display: flex; flex-direction: column; align-items: flex-start; min-width: 0;
@@ -13,5 +14,5 @@
 .partner-card-heading { display: flex; align-items: center; gap: 12px; width: 100%; min-width: 0; margin-bottom: 16px; }
 .partner-card-heading h3 { min-width: 0; }
 .partner-card h3 { margin: 0; font: 600 16px/1.4 'Montserrat', sans-serif; letter-spacing: .025em; text-transform: uppercase; color: var(--gold); }
-.partner-card p { flex: 1 0 auto; width: 100%; margin: 0; font: 400 var(--body-copy-size)/1.7 Georgia, 'Times New Roman', serif; text-align: justify; text-justify: inter-word; }
+.partner-card p { flex: 1 0 auto; width: 100%; margin: 0; font: 400 14px/1.7 Georgia, 'Times New Roman', serif; text-align: justify; text-justify: inter-word; }
 @media (max-width: 600px) { .partners-grid { gap: 16px; } .partner-card { padding: 22px 20px; } }
