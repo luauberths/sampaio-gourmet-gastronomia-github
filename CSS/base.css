@@ -51,7 +51,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     height: 58px;
     border-radius: 50%;
     background: linear-gradient(145deg, #b79762 0%, #92662f 100%);
-    color: var(--brown);
+    color: #fff;
     box-shadow: 0 2px 7px rgba(88, 58, 24, .08);
 }
 .menu-icon svg, .partner-icon-wrapper svg {

@@ -1,6 +1,6 @@
 .form-section { display: flex; align-items: flex-start; justify-content: center; }
 .quote-content { width: 100%;  min-width: 0; }
-.quote-container { width: 100%; min-width: 0; padding: clamp(20px, 3.5vw, 34px); background: var(--cream); border: 1px solid var(--panel-border); border-radius: 16px; }
+.quote-container { width: 100%; min-width: 0; padding: clamp(20px, 3.5vw, 34px); background: var(--cream); border: 1px solid rgba(154, 116, 65, .46); border-radius: 16px; }
 .quote-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 22px; min-width: 0; }
 .form-group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
 .form-group.full-width, .form-group:has(> #menu-type) { grid-column: 1 / -1; }
@@ -8,7 +8,7 @@
 .form-group input, .form-group select, .form-group textarea {
     display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 46px;
     padding: 12px 14px; font: 400 var(--body-copy-size)/1.4 Georgia, 'Times New Roman', serif;
-    color: var(--brown); background: var(--cream); border: 1px solid var(--control-border);
+    color: var(--brown); background: var(--cream); border: 1px solid rgba(230, 216, 197, .9);
     border-radius: 9px; outline-offset: 2px; transition: border-color .25s ease, box-shadow .25s ease;
 }
 /* Mantém o seletor nativo, com uma seta consistente e afastada da borda. */
@@ -28,7 +28,7 @@
     max-width: 100%;
     overflow: hidden;
     background: var(--cream);
-    border: 1px solid var(--control-border);
+    border: 1px solid rgba(230, 216, 197, .9);
     border-radius: 9px;
 }
 .form-group .date-input-wrap input[type="date"] {
@@ -44,12 +44,12 @@
     border-radius: 0;
     box-sizing: border-box;
 }
-.date-input-wrap:has(input:disabled) { background: var(--disabled-field-bg); }
+.date-input-wrap:has(input:disabled) { background: #f0ebe3; }
 .date-input-wrap:focus-within { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(154, 116, 65, .12); }
 .form-group .date-input-wrap input[type="date"]:focus { box-shadow: none; }
 .form-group textarea { min-height: 110px; resize: vertical; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(154, 116, 65, .12); }
-.form-group input:disabled { background: var(--disabled-field-bg); opacity: .7; cursor: not-allowed; }
+.form-group input:disabled { background: #f0ebe3; opacity: .7; cursor: not-allowed; }
 .field-hint { margin-top: 1px; font: 400 11px/1.5 'Montserrat', sans-serif; color: var(--gold); }
 .quote-submit-button {
     display: flex; grid-column: 1 / -1; align-items: center; justify-content: center; gap: 10px;
@@ -68,13 +68,3 @@
     .form-group .date-input-wrap input[type="date"]::-webkit-datetime-edit { min-width: 0; max-width: 100%; overflow: hidden; }
     .form-group .date-input-wrap input[type="date"]::-webkit-calendar-picker-indicator { margin: 0; padding: 0; }
 }
-
-/* Textos de exemplo legíveis sobre o fundo camurça, inclusive no Safari. */
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #79634f;
-    opacity: 1;
-}
-.form-group select:required:invalid { color: #79634f; }
-.form-group select option { color: var(--brown); }
-.form-group select option:disabled { color: #79634f; }
