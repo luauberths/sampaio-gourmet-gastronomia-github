@@ -81,7 +81,10 @@
     .mural-row:hover .mural-track { animation-play-state: paused; }
 }
 @media (max-width: 950px) {
-    .about-mural { --mural-radius: 20px; }
+    .about-mural {
+        --mural-radius: 20px;
+        --mural-height: clamp(260px, 65vw, 360px);
+    }
 }
 @media (prefers-reduced-motion: reduce) {
     .mural-control { display: none; }

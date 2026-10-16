@@ -32,10 +32,11 @@
     border-radius: 14px;
     transition: color .2s ease, background-color .2s ease;
 }
-.menus-page .menu-choice-toggle:focus-visible {
-    outline: 2px solid var(--gold);
-    outline-offset: 3px;
-    border-radius: 14px;
+/* Sem contorno ao tocar; navegação por teclado destaca apenas o nome. */
+.menus-page .menu-choice-toggle:focus { outline: none; }
+.menus-page .menu-choice-toggle:focus-visible .menu-choice-name {
+    text-decoration: underline;
+    text-underline-offset: 4px;
 }
 .menus-page .menu-choice-toggle::-webkit-details-marker { display: none; }
 .menus-page .menu-choice-toggle::marker { content: ''; }
