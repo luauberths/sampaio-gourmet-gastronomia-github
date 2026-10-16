@@ -15,7 +15,7 @@
     width: 100%;
     min-height: 2.4em;
     margin: 0;
-    font-size: clamp(40px, 3.1vw, 44px);
+    font-size: clamp(48px, 5vw, 64px);
     font-family: 'Great Vibes', cursive;
     font-weight: 400;
     line-height: 1.18;
@@ -73,7 +73,7 @@
         margin: 0 0 20px;
     }
     .services-subtitle { justify-content: center; margin-bottom: 18px; }
-    .hero-title { align-items: center; min-height: 0; font-size: clamp(30px, 6vw, 42px); line-height: 1.22; }
+    .hero-title { align-items: center; min-height: 0; font-size: clamp(40px, 7vw, 52px); line-height: 1.22; }
     .hero-description-container { margin-top: 18px; max-width: 680px; }
     .hero-buttons { margin-top: 0; }
     .hero-buttons .quote-button { display: none; }
@@ -87,7 +87,7 @@
     .slideshow-container { align-self: center; justify-self: center; max-width: 620px; aspect-ratio: 5 / 4; border-radius: 20px; }
 }
 @media (max-width: 480px) {
-    .hero-title { font-size: clamp(28px, 7.2vw, 34px); }
+    .hero-title { font-size: clamp(40px, 10vw, 48px); }
     .slideshow-container { aspect-ratio: 4 / 5; }
     .whatsapp-button { padding: 12px 16px; font-size: 12px; }
 }
