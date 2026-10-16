@@ -2,8 +2,24 @@
 @media (max-width: 950px) {
     .mobile-sections { display: block; width: 100%; }
     .mobile-sections > .page-section {
+        position: relative;
         margin-inline: auto;
-        border-top: 1px solid var(--divider-border);
+        border-top: 0;
+    }
+    .mobile-sections > .page-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        height: 1px;
+        background: var(--divider-border);
+        pointer-events: none;
+    }
+    /* Sobre ocupa a tela toda para o mural; a divisória acompanha o texto. */
+    .mobile-sections > .about-section::before {
+        width: min(calc(100% - var(--content-gutter) - var(--content-gutter)), var(--site-max));
     }
     .mobile-sections .menus-page { display: flex; }
 }
