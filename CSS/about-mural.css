@@ -84,8 +84,10 @@
 @media (max-width: 950px) {
     .about-mural {
         --mural-radius: 20px;
-        --mural-height: clamp(320px, 80vw, 440px);
+        --mural-height: clamp(420px, 133.3333vw, 760px);
     }
+    /* Uma foto ocupa a largura da fileira: a animação nunca revela três. */
+    .about-mural .mural-photo { width: 100cqw; }
 }
 @media (prefers-reduced-motion: reduce) {
     .mural-control { display: none; }
