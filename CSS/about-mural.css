@@ -1,0 +1,46 @@
+.about-mural {
+    --mural-gap: clamp(18px, 4vw, 48px);
+    --mural-offset: clamp(24px, 3.5vw, 44px);
+    width: 100%;
+    max-width: 1104px;
+    margin: clamp(16px, 2vw, 24px) auto 0;
+    padding-bottom: var(--mural-offset);
+    overflow: hidden;
+}
+.about-mural > .about-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--mural-gap);
+    row-gap: clamp(30px, 5vw, 56px);
+    width: calc((400% - 3 * var(--mural-gap)) / 3);
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.about-mural > .about-gallery > img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 26px;
+    transform: none;
+}
+.about-mural > .about-gallery > img:nth-child(even) {
+    transform: translateY(var(--mural-offset));
+}
+@media (max-width: 950px) {
+    .about-mural > .about-gallery > img { border-radius: 20px; }
+}
+@media (max-width: 600px) {
+    .about-mural {
+        --mural-gap: 18px;
+        --mural-offset: 24px;
+    }
+    .about-mural > .about-gallery { row-gap: 30px; }
+}
+
