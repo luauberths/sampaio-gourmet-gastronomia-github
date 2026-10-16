@@ -42,7 +42,7 @@
 .menus-page .menu-choice-toggle::marker { content: ''; }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
     color: var(--gold);
-    background-color: #f3ede3;
+    background-color: transparent;
 }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
     border-bottom: 0;
