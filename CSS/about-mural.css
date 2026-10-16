@@ -1,8 +1,22 @@
+.about-section.page-section {
+    width: 100%;
+    max-width: none;
+}
+.about-section .about-container {
+    width: 100%;
+    max-width: none;
+}
+.about-section .about-header,
+.about-section .about-content {
+    width: min(calc(100% - var(--content-gutter) - var(--content-gutter)), var(--site-max));
+    margin-inline: auto;
+}
+
 .about-mural {
     --mural-gap: clamp(18px, 4vw, 48px);
     --mural-offset: clamp(24px, 3.5vw, 44px);
     width: 100%;
-    max-width: 1104px;
+    max-width: none;
     margin: clamp(16px, 2vw, 24px) auto 0;
     padding-bottom: var(--mural-offset);
     overflow: hidden;
@@ -43,4 +57,3 @@
     }
     .about-mural > .about-gallery { row-gap: 30px; }
 }
-
