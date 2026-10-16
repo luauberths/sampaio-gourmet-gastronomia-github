@@ -153,7 +153,8 @@
         }
         if (reducedMotionQuery.matches || !('IntersectionObserver' in window)) return;
 
-        const heading = target.querySelector('.page-header, .hero-content, .section-title, h1');
+        // Nunca anime um ancestral do FAB: transform altera a referência de position: fixed.
+        const heading = target.querySelector('.page-header, .section-title, h1');
         if (!heading || typeof heading.animate !== 'function') return;
 
         const observer = new IntersectionObserver(entries => {
