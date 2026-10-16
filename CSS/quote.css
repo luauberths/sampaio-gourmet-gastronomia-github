@@ -68,3 +68,13 @@
     .form-group .date-input-wrap input[type="date"]::-webkit-datetime-edit { min-width: 0; max-width: 100%; overflow: hidden; }
     .form-group .date-input-wrap input[type="date"]::-webkit-calendar-picker-indicator { margin: 0; padding: 0; }
 }
+
+/* Textos de exemplo legíveis sobre o fundo camurça, inclusive no Safari. */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #79634f;
+    opacity: 1;
+}
+.form-group select:required:invalid { color: #79634f; }
+.form-group select option { color: var(--brown); }
+.form-group select option:disabled { color: #79634f; }
