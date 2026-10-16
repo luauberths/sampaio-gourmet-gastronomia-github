@@ -1,6 +1,5 @@
 .form-section { display: flex; align-items: flex-start; justify-content: center; }
 .quote-content { width: 100%;  min-width: 0; }
-.quote-subtitle { margin: 0; font: 400 14px/1.65 'Montserrat', sans-serif; opacity: .85; }
 .quote-container { width: 100%; min-width: 0; padding: clamp(20px, 3.5vw, 34px); background: var(--cream); border: 1px solid var(--panel-border); border-radius: 16px; }
 .quote-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 22px; min-width: 0; }
 .form-group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
@@ -8,7 +7,7 @@
 .form-group label { font: 600 13px/1.5 'Montserrat', sans-serif; color: var(--brown); }
 .form-group input, .form-group select, .form-group textarea {
     display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 46px;
-    padding: 12px 14px; font: 400 14px/1.4 Georgia, serif;
+    padding: 12px 14px; font: 400 var(--body-copy-size)/1.4 Georgia, 'Times New Roman', serif;
     color: var(--brown); background: var(--cream); border: 1px solid rgba(230, 216, 197, .9);
     border-radius: 9px; outline-offset: 2px; transition: border-color .25s ease, box-shadow .25s ease;
 }
