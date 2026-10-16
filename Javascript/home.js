@@ -42,6 +42,20 @@ if (titleStart && titleEnd && heroDescription) {
     ];
 
     let currentMessageIndex = 0;
+    const mobileHeroQuery = window.matchMedia('(max-width: 950px)');
+
+    // Duas linhas estáveis no celular, inclusive antes da fonte estar disponível.
+    const fitMobileTitle = () => {
+        [titleStart, titleEnd].forEach(element => {
+            element.style.transform = '';
+            if (!mobileHeroQuery.matches || !heroTitle) return;
+            const availableWidth = heroTitle.clientWidth;
+            const textWidth = element.scrollWidth;
+            if (availableWidth > 0 && textWidth > availableWidth) {
+                element.style.transform = `scaleX(${availableWidth / textWidth})`;
+            }
+        });
+    };
 
     const updateHeroMessage = () => {
         const message = heroMessages[currentMessageIndex];
@@ -49,6 +63,7 @@ if (titleStart && titleEnd && heroDescription) {
         titleStart.textContent = message.start;
         titleEnd.textContent = message.end;
         heroDescription.textContent = message.description;
+        fitMobileTitle();
 
         serviceItems.forEach((item, index) => {
             item.classList.toggle(
@@ -63,6 +78,22 @@ if (titleStart && titleEnd && heroDescription) {
 
         heroTitle.style.minHeight = '';
         heroDescription.style.minHeight = '';
+
+        if (mobileHeroQuery.matches) {
+            // Não reserve a altura calculada com a fonte provisória no título.
+            // O CSS mantém duas linhas; a descrição usa sua fonte original.
+            const originalDescription = heroDescription.textContent;
+            let maxDescriptionHeight = 0;
+            heroMessages.forEach(message => {
+                heroDescription.textContent = message.description;
+                maxDescriptionHeight = Math.max(maxDescriptionHeight, heroDescription.scrollHeight);
+            });
+            heroDescription.textContent = originalDescription;
+            heroDescription.style.minHeight = `${Math.ceil(maxDescriptionHeight)}px`;
+            fitMobileTitle();
+            return;
+        }
+        fitMobileTitle();
 
         const minimoTitulo =
             parseFloat(getComputedStyle(heroTitle).minHeight) || 0;
@@ -114,6 +145,8 @@ if (titleStart && titleEnd && heroDescription) {
     ajustarAlturas();
 
     let resizeFrame = null;
+
+    mobileHeroQuery.addEventListener('change', ajustarAlturas);
 
     window.addEventListener('resize', () => {
         if (resizeFrame !== null) {
