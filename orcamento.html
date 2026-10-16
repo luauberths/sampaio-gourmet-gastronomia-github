@@ -94,25 +94,38 @@
 
                     <div class="form-group">
                         <label for="guest-count">Quantidade de Pessoas *</label>
-                        <input type="number" id="guest-count" name="guest-count" min="1" placeholder="Ex: 50" required>
+                        <input type="number" id="guest-count" name="guest-count" min="1" max="300" placeholder="Ex: 50" required>
                     </div>
 
                     <div class="form-group">
                         <label for="city">Cidade do Evento *</label>
-                        <input type="text" id="city" name="city" list="city-options" placeholder="Digite a cidade (ex: São Paulo, Osasco, Carapicuíba...)" required>
-                        <datalist id="city-options">
-                            <option value="Alphaville"></option>
-                            <option value="Barueri"></option>
-                            <option value="Carapicuíba"></option>
-                            <option value="Cotia"></option>
-                            <option value="Embu das Artes"></option>
-                            <option value="Granja Viana"></option>
-                            <option value="Itapevi"></option>
-                            <option value="Jandira"></option>
-                            <option value="Lapa"></option>
-                            <option value="Osasco"></option>
-                            <option value="Santana de Parnaíba"></option>
-                        </datalist>
+                        <select id="city" name="city" required>
+                            <option value="" disabled selected>Selecione a cidade do evento</option>
+                            <option value="Alphaville">Alphaville</option>
+                            <option value="Barueri">Barueri</option>
+                            <option value="Carapicuíba">Carapicuíba</option>
+                            <option value="Cotia">Cotia</option>
+                            <option value="Embu das Artes">Embu das Artes</option>
+                            <option value="Granja Viana">Granja Viana</option>
+                            <option value="Itapevi">Itapevi</option>
+                            <option value="Jandira">Jandira</option>
+                            <option value="Lapa">Lapa</option>
+                            <option value="Osasco">Osasco</option>
+                            <option value="Santana de Parnaíba">Santana de Parnaíba</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="menu-type">Tipo de Cardápio *</label>
+                        <select id="menu-type" name="menu-type" required>
+                            <option value="" disabled selected>Selecione o cardápio</option>
+                            <option value="Almoço - Jantar">Almoço - Jantar</option>
+                            <option value="Churrasco">Churrasco</option>
+                            <option value="Coquetel finger food">Coquetel finger food</option>
+                            <option value="Infantil I">Infantil I</option>
+                            <option value="Infantil — II">Infantil — II</option>
+                            <option value="Infantil III">Infantil III</option>
+                        </select>
                     </div>
 
                     <div class="form-group full-width">
