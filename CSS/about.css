@@ -14,7 +14,7 @@
     row-gap: clamp(30px, 5vw, 56px);
     width: 100%;
     max-width: 720px;
-    margin: clamp(32px, 4vw, 48px) auto 0;
+    margin: clamp(16px, 2vw, 24px) auto 0;
     padding-bottom: var(--gallery-offset);
 }
 .about-gallery img {
