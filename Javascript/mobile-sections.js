@@ -8,7 +8,8 @@
         { file: 'cardapios.html', id: 'cardapios' },
         { file: 'orcamento.html', id: 'orcamento' },
         { file: 'sobre.html', id: 'sobre' },
-        { file: 'parceiros.html', id: 'parceiros' }
+        { file: 'parceiros.html', id: 'parceiros' },
+        { file: 'clientes.html', id: 'clientes' }
     ];
     const pageIds = new Map(sectionPages.map(page => [page.file, page.id]));
     const validSections = new Set(['home', ...sectionPages.map(page => page.id)]);
@@ -122,6 +123,21 @@
         });
     }
 
+    function initializeClientReviews() {
+        const clients = sectionContainer.querySelector('#clientes');
+        if (!clients) return;
+        // Scripts copiados por DOMParser são inertes: carregue a plataforma
+        // apenas depois de inserir o contêiner das avaliações no documento.
+        clients.querySelectorAll('script[src="https://elfsightcdn.com/platform.js"]')
+            .forEach(script => script.remove());
+        if (document.querySelector('script[data-sampaio-reviews]')) return;
+        const script = document.createElement('script');
+        script.src = 'https://elfsightcdn.com/platform.js';
+        script.async = true;
+        script.dataset.sampaioReviews = 'true';
+        document.body.appendChild(script);
+    }
+
     async function loadSections() {
         if (sectionsPromise) return sectionsPromise;
         sectionsPromise = (async () => {
@@ -136,7 +152,8 @@
             }));
             sectionContainer.replaceChildren(...pages);
             initializeMobileCardapios();
-            await import('./quote.js');
+            initializeClientReviews();
+            await import('./quote.js?v=20261016-calendar');
         })().catch(error => {
             sectionsPromise = undefined;
             console.error('Erro ao carregar as seções do site:', error);
