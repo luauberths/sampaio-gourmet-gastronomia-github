@@ -94,7 +94,7 @@
         fragment.append(summary);
         if (reviews.length) {
             const track = element('div', 'reviews-track');
-            track.id = 'feedback-reviews-track';
+            track.id = 'feedbacks-reviews-track';
             track.setAttribute('role', 'region'); track.setAttribute('aria-label', 'Avaliações dos clientes');
             track.tabIndex = 0;
             reviews.forEach(review => track.append(reviewCard(review)));

@@ -9,11 +9,12 @@
         { file: 'orcamento.html', id: 'orcamento' },
         { file: 'sobre.html', id: 'sobre' },
         { file: 'parceiros.html', id: 'parceiros' },
-        { file: 'feedback.html', id: 'feedback' }
+        { file: 'feedbacks.html', id: 'feedbacks' }
     ];
     const pageIds = new Map(sectionPages.map(page => [page.file, page.id]));
-    pageIds.set('clientes.html', 'feedback');
-    const normalizeSectionId = id => id === 'clientes' ? 'feedback' : id;
+    pageIds.set('clientes.html', 'feedbacks');
+    pageIds.set('feedback.html', 'feedbacks');
+    const normalizeSectionId = id => ['clientes', 'feedback'].includes(id) ? 'feedbacks' : id;
     const validSections = new Set(['home', ...sectionPages.map(page => page.id)]);
     const redirectStorageKey = 'sampaioMobileDestination';
     const initialMobileLoad = mobileQuery.matches;
@@ -127,7 +128,7 @@
     }
 
     async function initializeClientReviews() {
-        await import('./reviews.js?v=20261016-feedback-borders');
+        await import('./reviews.js?v=20261016-feedbacks-partner-cards');
         window.SampaioReviews.init();
     }
 
