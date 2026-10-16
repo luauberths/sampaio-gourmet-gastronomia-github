@@ -21,17 +21,17 @@ if (titleStart && titleEnd && heroDescription) {
         {
             start: 'Sabores que tornam seus',
             end: 'momentos especiais...',
-            description: 'Transformamos sua celebração em uma experiência inesquecível. Em casamentos ou grandes festas, fazemos cada instante ficar marcado na sua memória...'
+            description: 'Celebre os bons momentos com uma mesa cheia de sabor. Em casamentos, aniversários ou grandes festas, cuidamos da comida e do serviço para que você aproveite cada instante ao lado de quem gosta.'
         },
         {
             start: 'Detalhes que marcam',
             end: 'encontros inesquecíveis...',
-            description: 'A excelência está no cuidado com cada detalhe, unindo sabor e sofisticação para traduzir a essência da sua comemoração...'
+            description: 'Receber bem começa nos detalhes. Unimos boa comida, cuidado no preparo e atenção ao servir para criar uma experiência que combine com o estilo da sua festa e faça seus convidados se sentirem acolhidos.'
         },
         {
             start: 'Serviços pensados para',
             end: 'encantar seus convidados...',
-            description: 'Do requinte de um brunch ao dinamismo de um coffee break ou buffet, criamos cardápios sob medida para encantar do início ao fim...'
+            description: 'Do brunch ao coffee break ou buffet, preparamos opções que combinam com cada encontro. Nossos cardápios unem sabor e variedade para receber seus convidados com cuidado, do início ao fim.'
         }
     ];
 
