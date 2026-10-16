@@ -28,7 +28,7 @@
     list-style: none;
     cursor: pointer;
     color: var(--brown);
-    background: #f3ede3;
+    background: #f8f4ed;
     border-radius: 14px;
     transition: color .2s ease, background-color .2s ease;
 }
@@ -41,7 +41,7 @@
 .menus-page .menu-choice-toggle::marker { content: ''; }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
     color: var(--gold);
-    background-color: #eee5d8;
+    background-color: #f3ede3;
 }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
     border-bottom: 0;
