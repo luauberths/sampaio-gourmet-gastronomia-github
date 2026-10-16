@@ -12,11 +12,11 @@
             window.location.replace('index.html#sobre');
         }
     </script>
-    <title>Sampaio Gourmet & Gastronomia - Sobre nós</title>
+    <title>Sampaio Gourmet &amp; Gastronomia - Sobre nós</title>
     
     <link rel="icon" type="image/png" href="Images/favicon.png">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    
     <link rel="preload"
           href="https://fonts.gstatic.com/s/greatvibes/v21/RWmMoKWR9v4ksMfaWd_JN9XFiaQ.woff2"
           as="font" type="font/woff2" crossorigin>
@@ -27,7 +27,6 @@
     <link rel="stylesheet" href="CSS/base.css">
     <link rel="stylesheet" href="CSS/layout.css">
     <link rel="stylesheet" href="CSS/about.css">
-    
 </head>
 
 <body>
@@ -53,27 +52,26 @@
     </nav>
 
     <main class="page-section about-section">
+            <svg class="title-branch-filter" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="title-branch-cutout-sobre" color-interpolation-filters="sRGB">
+                        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  4 4 4 0 0"/>
+                    </filter>
+                </defs>
+            </svg>
         <div class="about-container">
             <div class="page-header about-header">
-                <h1 class="section-title">Nossa história...</h1>
+                <h1 class="section-title">
+                    <img src="Images/olive_branch.png" class="title-branch" alt="" aria-hidden="true" width="80" height="80" style="filter: url(#title-branch-cutout-sobre);">
+                    <span class="section-title-text">Nossa história...</span>
+                    <img src="Images/olive_branch.png" class="title-branch title-branch-right" alt="" aria-hidden="true" width="80" height="80" style="filter: url(#title-branch-cutout-sobre);">
+                </h1>
             </div>
             <div class="about-content">
-
-                <p class="section-description">
-                    Toda celebração tem uma história, e nós queremos fazer parte da sua.
-                </p>
-
-                <p class="section-description">
-                    A <strong>Sampaio Gourmet & Gastronomia</strong> nasceu com o propósito de tornar momentos especiais ainda mais memoráveis por meio da gastronomia, do cuidado e da dedicação em cada serviço.
-                </p>
-
-                <p class="section-description">
-                    Acreditamos que cada evento é único e merece atenção especial. Por isso, trabalhamos para oferecer uma experiência que combine sabores marcantes, organização e carinho, valorizando cada detalhe para que você possa aproveitar o que realmente importa: celebrar ao lado das pessoas especiais da sua vida.
-                </p>
-
-                <p class="section-description">
-                    De pequenas comemorações a grandes celebrações, estamos prontos para levar sabor, dedicação e elegância ao seu evento.
-                </p>
+                <p class="section-description">Toda celebração tem uma história, e nós queremos fazer parte da sua.</p>
+                <p class="section-description">A <strong>Sampaio Gourmet &amp; Gastronomia</strong> nasceu com o propósito de tornar momentos especiais ainda mais memoráveis por meio da gastronomia, do cuidado e da dedicação em cada serviço.</p>
+                <p class="section-description">Acreditamos que cada evento é único e merece atenção especial. Por isso, trabalhamos para oferecer uma experiência que combine sabores marcantes, organização e carinho, valorizando cada detalhe para que você possa aproveitar o que realmente importa: celebrar ao lado das pessoas especiais da sua vida.</p>
+                <p class="section-description">De pequenas comemorações a grandes celebrações, estamos prontos para levar sabor, dedicação e elegância ao seu evento.</p>
             </div>
         </div>
     </main>
@@ -130,5 +128,4 @@
     </footer>
     <script src="Javascript/main.js"></script>
 </body>
-
 </html>
