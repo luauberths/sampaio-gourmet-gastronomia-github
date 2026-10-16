@@ -13,6 +13,7 @@
     --title-content-spacing: 14px;
     --header-content-spacing: 32px;
     --mobile-nav-height: 68px;
+    --body-copy-size: clamp(15px, 1.45vw, 17px);
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { width: 100%; scroll-behavior: smooth; }
@@ -89,14 +90,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     text-align: center;
 }
 .page-header .section-title, .page-header > p { margin: 0; }
-.page-header > p { max-width: 700px; line-height: 1.65; text-align: justify; text-justify: inter-word; }
+.page-header > p { max-width: 700px; line-height: 1.65; text-align: left; }
+.page-header > p {
+    max-width: 700px;
+    font: 400 14px/1.65 'Montserrat', sans-serif;
+    opacity: .85;
+    text-align: center;
+}
 .section-description {
     width: 100%;
     margin: 0;
     font-size: clamp(15px, 1.45vw, 17px);
+    font-size: var(--body-copy-size);
     line-height: 1.8;
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
+   
     overflow-wrap: break-word;
     transition: opacity .5s ease-in-out;
 }
@@ -105,4 +113,36 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     :root { --header-content-spacing: 26px; --title-content-spacing: 10px; }
     .section-title { font-size: clamp(40px, 9vw, 54px); }
     .section-description { line-height: 1.75; }
+}
+
+/* Ramos em SVG vetorizados a partir da imagem enviada. */
+.page-header > .section-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: .10em;
+    max-width: 100%;
+    min-width: 0;
+    text-align: center;
+}
+.section-title-text { min-width: 0; overflow-wrap: break-word; }
+.page-header > .section-title > .title-branch {
+    display: block;
+    flex: 0 0 .86em;
+    width: .86em;
+    height: 1.04em;
+    margin-bottom: .18em;
+    object-fit: contain;
+}
+.title-branch-right { transform: scaleX(-1); }
+@media (max-width: 600px) {
+    .page-header > .section-title {
+        gap: .08em;
+        font-size: clamp(30px, 7.5vw, 44px);
+    }
+    .page-header > .section-title > .title-branch {
+        flex-basis: .78em;
+        width: .78em;
+        height: .94em;
+    }
 }

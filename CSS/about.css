@@ -5,3 +5,28 @@
 @media (max-width: 950px) {
     .about-content { gap: 18px; }
 }
+
+/* Fotos de apoio abaixo da história, com espaço entre os quadrados. */
+.about-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(16px, 2.5vw, 28px);
+    width: 100%;
+    max-width: 760px;
+    margin: 36px auto 0;
+}
+.about-gallery img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+@media (max-width: 600px) {
+    .about-gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: 360px;
+        margin-top: 28px;
+    }
+}

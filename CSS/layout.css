@@ -42,7 +42,7 @@
 .footer-brand { align-items: center; text-align: center; gap: 12px; }
 .logo-footer-container { display: flex; align-items: center; justify-content: center; width: 100%; }
 .logo-footer { display: block; width: 120px; height: auto; object-fit: contain; }
-.footer-tagline { max-width: 240px; margin: 0; font: 500 12px/1.55 'Montserrat', sans-serif; opacity: .8; text-align: justify; text-justify: inter-word; }
+.footer-tagline { max-width: 240px; margin: 0; font: 500 12px/1.55 'Montserrat', sans-serif; opacity: .8; text-align: left; }
 .footer-title { margin: 0; font: 600 13px/1.4 'Montserrat', sans-serif; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); }
 .footer-explore-links, .footer-contact-list { display: flex; flex-direction: column; gap: 12px; margin: 0; padding: 0; list-style: none; }
 .footer-explore-links a, .footer-contact-list, .footer-contact-list a {

@@ -108,8 +108,8 @@
     font-size: clamp(15px, 1.55vw, 17px);
     line-height: 1.56;
     color: var(--brown);
-    text-align: justify;
-    text-justify: inter-word;
+    text-align: left;
+   
     overflow-wrap: anywhere;
 }
 .menus-page .menu-panel-body p,
