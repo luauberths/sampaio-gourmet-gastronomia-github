@@ -92,8 +92,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .page-header .section-title, .page-header > p { margin: 0; }
 .page-header > p { max-width: 700px; line-height: 1.65; text-align: left; }
 .page-header > p {
-    max-width: 700px;
-    font: 400 14px/1.65 'Montserrat', sans-serif;
+    max-width: 650px;
+    font: 400 14px/1.6 'Montserrat', sans-serif;
     opacity: .85;
     text-align: center;
 }
@@ -113,9 +113,11 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     :root { --header-content-spacing: 26px; --title-content-spacing: 10px; }
     .section-title { font-size: clamp(40px, 9vw, 54px); }
     .section-description { line-height: 1.75; }
+    .page-header > p {
+        font-size: 13px;
+    }
 }
 
-/* Ramos em SVG vetorizados a partir da imagem enviada. */
 .page-header > .section-title {
     display: flex;
     align-items: flex-end;
@@ -147,7 +149,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     }
 }
 
-/* Justificação restrita aos textos da apresentação, da história e dos parceiros. */
 .hero-description-container .section-description,
 .about-content .section-description,
 .partner-card p {
