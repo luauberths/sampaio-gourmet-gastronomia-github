@@ -115,11 +115,12 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
     .section-description { line-height: 1.75; }
 }
 
+/* Ramos em SVG vetorizados a partir da imagem enviada. */
 .page-header > .section-title {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    gap: clamp(8px, 1.4vw, 20px);
+    gap: .10em;
     max-width: 100%;
     min-width: 0;
     text-align: center;
@@ -127,21 +128,21 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .section-title-text { min-width: 0; overflow-wrap: break-word; }
 .page-header > .section-title > .title-branch {
     display: block;
-    flex: 0 0 clamp(52px, 6vw, 80px);
-    width: clamp(52px, 6vw, 80px);
-    height: clamp(52px, 6vw, 80px);
+    flex: 0 0 .86em;
+    width: .86em;
+    height: 1.04em;
+    margin-bottom: .18em;
     object-fit: contain;
 }
 .title-branch-right { transform: scaleX(-1); }
-.title-branch-filter { position: absolute; pointer-events: none; }
 @media (max-width: 600px) {
     .page-header > .section-title {
-        gap: 6px;
+        gap: .08em;
         font-size: clamp(30px, 7.5vw, 44px);
     }
     .page-header > .section-title > .title-branch {
-        flex-basis: clamp(34px, 9vw, 52px);
-        width: clamp(34px, 9vw, 52px);
-        height: clamp(34px, 9vw, 52px);
+        flex-basis: .78em;
+        width: .78em;
+        height: .94em;
     }
 }
