@@ -123,18 +123,9 @@
         });
     }
 
-    function initializeClientReviews() {
-        const reviews = sectionContainer.querySelector('#clientes .clients-reviews');
-        if (!reviews || reviews.querySelector('script[data-sampaio-reviews]')) return;
-        // DOMParser não executa scripts. Recrie o carregador no próprio local
-        // das avaliações, pois o Trustindex usa esse ponto para inserir o widget.
-        reviews.querySelectorAll('script').forEach(script => script.remove());
-        const script = document.createElement('script');
-        script.src = 'https://cdn.trustindex.io/loader.js?ed5ea6b839fd8098c446e333696';
-        script.async = true;
-        script.defer = true;
-        script.dataset.sampaioReviews = 'true';
-        reviews.appendChild(script);
+    async function initializeClientReviews() {
+        await import('./reviews.js?v=20261016-featurable-style');
+        window.SampaioReviews.init();
     }
 
     async function loadSections() {
@@ -151,7 +142,7 @@
             }));
             sectionContainer.replaceChildren(...pages);
             initializeMobileCardapios();
-            initializeClientReviews();
+            initializeClientReviews().catch(error => console.error('Erro ao carregar as avaliações:', error));
             await import('./quote.js?v=20261016-calendar');
         })().catch(error => {
             sectionsPromise = undefined;
