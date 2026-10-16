@@ -91,3 +91,20 @@
     .slideshow-container { aspect-ratio: 4 / 5; }
     .whatsapp-button { padding: 12px 16px; font-size: 12px; }
 }
+
+/* A troca de fonte não altera a distância entre título e descrição no celular. */
+@media (max-width: 950px) {
+    .hero-title {
+        height: 2.44em;
+        min-height: 0;
+        flex: none;
+    }
+    .hero-title > span {
+        flex: none;
+        width: max-content;
+        max-width: none;
+        height: 1.22em;
+        white-space: nowrap;
+        transform-origin: center;
+    }
+}
