@@ -52,20 +52,8 @@
     </nav>
 
     <main class="page-section menus-section menus-page">
-            <svg class="title-branch-filter" width="0" height="0" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <filter id="title-branch-cutout-cardapios" color-interpolation-filters="sRGB">
-                        <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  4 4 4 0 0"/>
-                    </filter>
-                </defs>
-            </svg>
         <div class="page-header menus-header">
-            <h1 class="section-title">
-                    <img src="Images/olive_branch.svg" class="title-branch" alt="" aria-hidden="true" width="80" height="80" style="filter: url(#title-branch-cutout-cardapios);">
-                    <span class="section-title-text">Cardápios</span>
-                    <img src="Images/olive_branch.svg" class="title-branch title-branch-right" alt="" aria-hidden="true" width="80" height="80" style="filter: url(#title-branch-cutout-cardapios);">
-                </h1>
-            <p class="menus-subtitle">Conheça as opções de cardápio que preparamos para tornar seu evento ainda mais especial.</p>
+            <h1 class="section-title">Nossos cardápios</h1>
         </div>
 
 
@@ -612,8 +600,57 @@
             <p>CNPJ: 65.164.787/0001-72</p>
         </div>
     </footer>
-    
-    <script src="Javascript/main.js"></script>
+
+
+    <script>
+        (function () {
+            const cardapios = Array.from(document.querySelectorAll('.menus-page .menu-choice'));
+            const nav = document.querySelector('.nav-bar');
+            const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            function rolarParaCardapio(cardapio) {
+                const titulo = cardapio.querySelector('.menu-choice-toggle');
+                if (!titulo) return;
+
+                const posicaoNav = nav ? window.getComputedStyle(nav).position : '';
+                const navFixa = posicaoNav === 'fixed' || posicaoNav === 'sticky';
+                const alturaNav = navFixa ? nav.getBoundingClientRect().height : 0;
+                const margem = 16;
+                const destino = window.scrollY + titulo.getBoundingClientRect().top - alturaNav - margem;
+
+                window.scrollTo({
+                    top: Math.max(0, destino),
+                    behavior: reduzMovimento.matches ? 'instant' : 'smooth'
+                });
+            }
+
+            cardapios.forEach(function (cardapio) {
+                const titulo = cardapio.querySelector('.menu-choice-toggle');
+                if (!titulo) return;
+
+                titulo.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    if (cardapio.open) {
+                        cardapio.open = false;
+                        return;
+                    }
+
+                    cardapios.forEach(function (outro) {
+                        if (outro !== cardapio) outro.open = false;
+                    });
+                    cardapio.open = true;
+
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            if (cardapio.open) rolarParaCardapio(cardapio);
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+    <script src="Javascript/main.js?v=20261015-desktop-transitions"></script>
 </body>
 
 </html>
