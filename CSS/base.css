@@ -1,9 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap');
 :root {
-    --panel-border: rgba(154, 116, 65, .46);
+    --panel-border: rgba(117, 83, 49, .48);
+    --panel-border-strong: rgba(117, 83, 49, .60);
+    --divider-border: rgba(117, 83, 49, .26);
+    --control-border: rgba(99, 72, 44, .58);
+    --disabled-field-bg: #ddcbb2;
     --gold: #9a7441;
     --brown: #463a2e;
-    --cream: #fffdf9;
+    --cream: #e8d8c3;
     --white: #ffffff;
     --green: #25d366;
     --site-max: 1120px;

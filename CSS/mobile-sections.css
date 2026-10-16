@@ -3,7 +3,7 @@
     .mobile-sections { display: block; width: 100%; }
     .mobile-sections > .page-section {
         margin-inline: auto;
-        border-top: 1px solid rgba(154, 116, 65, .22);
+        border-top: 1px solid var(--divider-border);
     }
     .mobile-sections .menus-page { display: flex; }
 }

@@ -4,7 +4,7 @@
 .menus-page .menu-choice {
     min-width: 0;
     overflow: hidden;
-    border: 1px solid rgba(154, 116, 65, .46);
+    border: 1px solid var(--panel-border);
     border-radius: 16px;
     background: var(--cream);
     box-shadow: 0 6px 24px rgba(70, 50, 30, .045);
@@ -29,7 +29,7 @@
     background-color: rgba(154, 116, 65, .045);
 }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
-    border-bottom: 1px solid rgba(154, 116, 65, .28);
+    border-bottom: 1px solid var(--divider-border);
 }
 .menus-page .menu-choice-name {
     font-family: 'Montserrat', sans-serif;
@@ -43,7 +43,7 @@
     flex: 0 0 34px;
     width: 34px;
     height: 34px;
-    border: 1px solid rgba(154, 116, 65, .35);
+    border: 1px solid var(--panel-border);
     border-radius: 50%;
 }
 .menus-page .menu-choice-indicator::before,
@@ -79,7 +79,7 @@
     position: relative;
     min-width: 0;
     padding: 36px 22px 22px;
-    border: 1px solid rgba(154, 116, 65, .57);
+    border: 1px solid var(--panel-border-strong);
     border-radius: 10px;
     background: var(--cream);
 }
