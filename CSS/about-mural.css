@@ -1,59 +1,69 @@
-.about-section.page-section {
-    width: 100%;
-    max-width: none;
-}
-.about-section .about-container {
-    width: 100%;
-    max-width: none;
-}
+.about-section.page-section { width: 100%; max-width: none; }
+.about-section .about-container { width: 100%; max-width: none; }
 .about-section .about-header,
 .about-section .about-content {
     width: min(calc(100% - var(--content-gutter) - var(--content-gutter)), var(--site-max));
     margin-inline: auto;
 }
-
 .about-mural {
     --mural-gap: clamp(18px, 4vw, 48px);
     --mural-offset: clamp(24px, 3.5vw, 44px);
+    --mural-radius: 26px;
     width: 100%;
-    max-width: none;
+    max-width: 100%;
     margin: clamp(16px, 2vw, 24px) auto 0;
     padding-bottom: var(--mural-offset);
-    overflow: hidden;
 }
 .about-mural > .about-gallery {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: minmax(0, .5fr) repeat(2, minmax(0, 1fr)) minmax(0, .5fr);
     column-gap: var(--mural-gap);
     row-gap: clamp(30px, 5vw, 56px);
-    width: calc((400% - 3 * var(--mural-gap)) / 3);
-    max-width: none;
+    align-items: start;
+    width: 100%;
+    max-width: 100%;
     margin: 0;
     padding: 0;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    transform: none;
 }
-.about-mural > .about-gallery > img {
+.about-mural .mural-tile {
+    display: block;
+    min-width: 0;
+    width: 100%;
+    aspect-ratio: 1;
+    margin: 0;
+    overflow: hidden;
+    border-radius: var(--mural-radius);
+}
+
+.about-mural .mural-tile:nth-child(4n + 1) {
+    aspect-ratio: 1 / 2;
+    border-radius: 0 var(--mural-radius) var(--mural-radius) 0;
+}
+.about-mural .mural-tile:nth-child(4n) {
+    aspect-ratio: 1 / 2;
+    border-radius: var(--mural-radius) 0 0 var(--mural-radius);
+}
+.about-mural .mural-tile:nth-child(even) {
+    transform: translateY(var(--mural-offset));
+}
+.about-mural .about-gallery .mural-tile > img {
     display: block;
     width: 100%;
     max-width: 100%;
-    height: auto;
-    aspect-ratio: 1;
+    height: 100%;
+    aspect-ratio: auto;
     object-fit: cover;
-    border-radius: 26px;
+    border-radius: 0;
     transform: none;
 }
-.about-mural > .about-gallery > img:nth-child(even) {
-    transform: translateY(var(--mural-offset));
-}
+.about-mural .mural-tile:nth-child(4n + 1) > img { object-position: right center; }
+.about-mural .mural-tile:nth-child(4n) > img { object-position: left center; }
 @media (max-width: 950px) {
-    .about-mural > .about-gallery > img { border-radius: 20px; }
+    .about-mural { --mural-radius: 20px; }
 }
 @media (max-width: 600px) {
-    .about-mural {
-        --mural-gap: 18px;
-        --mural-offset: 24px;
-    }
+    .about-mural { --mural-gap: 18px; --mural-offset: 24px; }
     .about-mural > .about-gallery { row-gap: 30px; }
 }
