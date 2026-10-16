@@ -48,11 +48,13 @@
     border-bottom: 0;
 }
 .menus-page .menu-choice-name {
+    min-width: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 1.5;
-    letter-spacing: .01em;
+    letter-spacing: 0;
+    overflow-wrap: break-word;
 }
 .menus-page .menu-choice-indicator {
     position: relative;
@@ -183,7 +185,7 @@
 }
 @media (max-width: 720px) {
     .menus-page .menu-choice-toggle { min-height: 68px; padding: 16px 18px; gap: 16px; }
-    .menus-page .menu-choice-name { font-size: 15px; letter-spacing: .01em; }
+    .menus-page .menu-choice-name { font-size: 15px; letter-spacing: 0; }
     .menus-page .menu-choice-body { padding: 36px 18px 27px; }
     .menus-page .menu-columns { grid-template-columns: minmax(0, 1fr); gap: 38px; }
     .menus-page .menu-panel-wide { margin-top: 38px; }
