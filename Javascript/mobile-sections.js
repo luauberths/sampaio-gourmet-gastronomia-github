@@ -9,9 +9,11 @@
         { file: 'orcamento.html', id: 'orcamento' },
         { file: 'sobre.html', id: 'sobre' },
         { file: 'parceiros.html', id: 'parceiros' },
-        { file: 'clientes.html', id: 'clientes' }
+        { file: 'feedback.html', id: 'feedback' }
     ];
     const pageIds = new Map(sectionPages.map(page => [page.file, page.id]));
+    pageIds.set('clientes.html', 'feedback');
+    const normalizeSectionId = id => id === 'clientes' ? 'feedback' : id;
     const validSections = new Set(['home', ...sectionPages.map(page => page.id)]);
     const redirectStorageKey = 'sampaioMobileDestination';
     const initialMobileLoad = mobileQuery.matches;
@@ -62,7 +64,7 @@
 
     function requestedSectionFromHash() {
         try {
-            const id = decodeURIComponent(location.hash.slice(1));
+            const id = normalizeSectionId(decodeURIComponent(location.hash.slice(1)));
             return validSections.has(id) ? id : null;
         } catch {
             return null;
@@ -76,6 +78,7 @@
             sessionStorage.removeItem(redirectStorageKey);
         } catch {}
 
+        redirectDestination = normalizeSectionId(redirectDestination);
         if (!validSections.has(redirectDestination) || redirectDestination === 'home') {
             redirectDestination = null;
         }
@@ -124,7 +127,7 @@
     }
 
     async function initializeClientReviews() {
-        await import('./reviews.js?v=20261016-featurable-style');
+        await import('./reviews.js?v=20261016-feedback-borders');
         window.SampaioReviews.init();
     }
 
@@ -232,7 +235,7 @@
 
         if (fileName === 'index.html') {
             const requestedHash = url.hash ? (() => {
-                try { return decodeURIComponent(url.hash.slice(1)); }
+                try { return normalizeSectionId(decodeURIComponent(url.hash.slice(1))); }
                 catch { return null; }
             })() : null;
             if (requestedHash && !validSections.has(requestedHash)) return;

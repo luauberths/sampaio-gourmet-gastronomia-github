@@ -94,7 +94,7 @@
         fragment.append(summary);
         if (reviews.length) {
             const track = element('div', 'reviews-track');
-            track.id = 'clients-reviews-track';
+            track.id = 'feedback-reviews-track';
             track.setAttribute('role', 'region'); track.setAttribute('aria-label', 'Avaliações dos clientes');
             track.tabIndex = 0;
             reviews.forEach(review => track.append(reviewCard(review)));
@@ -109,20 +109,36 @@
             const position = element('span', 'reviews-position');
             position.setAttribute('aria-live', 'polite');
             const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+            // Alinha cada cartão à margem interna do carrossel. Não acumula
+            // deslocamentos fracionários que podem recortar a borda esquerda.
+            const geometry = () => {
+                const style = getComputedStyle(track);
+                const padding = parseFloat(style.paddingLeft) || 0;
+                const gap = parseFloat(style.columnGap) || 0;
+                const left = track.getBoundingClientRect().left + track.clientLeft;
+                const maximum = Math.max(0, track.scrollWidth - track.clientWidth);
+                const targets = Array.from(track.children).map(card =>
+                    Math.max(0, Math.min(maximum,
+                        track.scrollLeft + card.getBoundingClientRect().left - left - padding))
+                ).filter((value, index, all) => index === 0 || Math.abs(value - all[index - 1]) > .5);
+                const index = targets.reduce((closest, target, i) =>
+                    Math.abs(target - track.scrollLeft) < Math.abs(targets[closest] - track.scrollLeft) ? i : closest, 0);
+                const step = track.firstElementChild.getBoundingClientRect().width + gap;
+                const innerWidth = track.clientWidth - padding - (parseFloat(style.paddingRight) || 0);
+                const visible = step ? Math.max(1, Math.round((innerWidth + gap) / step)) : 1;
+                return { targets, index, visible, maximum };
+            };
             const move = direction => {
-                const first = track.firstElementChild;
-                const step = first.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || '0');
-                track.scrollBy({ left: direction * step, behavior: reduced.matches ? 'auto' : 'smooth' });
+                const { targets, index } = geometry();
+                const nextIndex = Math.max(0, Math.min(targets.length - 1, index + direction));
+                track.scrollTo({ left: targets[nextIndex], behavior: reduced.matches ? 'auto' : 'smooth' });
             };
             previous.addEventListener('click', () => move(-1)); next.addEventListener('click', () => move(1));
             const updateNavigation = () => {
-                const first = track.firstElementChild;
-                const step = first.getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || '0');
-                const index = step ? Math.round(track.scrollLeft / step) : 0;
-                const visible = step ? Math.max(1, Math.round((track.clientWidth + parseFloat(getComputedStyle(track).columnGap || '0')) / step)) : 1;
+                const { index, visible, maximum } = geometry();
                 position.textContent = `${Math.min(index + 1, reviews.length)}–${Math.min(index + visible, reviews.length)} de ${reviews.length}`;
                 previous.disabled = track.scrollLeft < 2;
-                next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+                next.disabled = track.scrollLeft >= maximum - 2;
             };
             let scrollFrame;
             track.addEventListener('scroll', () => {
