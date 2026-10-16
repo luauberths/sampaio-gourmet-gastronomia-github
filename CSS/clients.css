@@ -1,0 +1,9 @@
+.clients-section { display: flex; flex-direction: column; min-width: 0; }
+.clients-header { width: 100%; max-width: 1000px; margin-inline: auto; }
+.clients-header .section-title { justify-content: center; }
+.clients-header .section-title-text { text-align: center; }
+.clients-reviews { width: 100%; min-width: 0; min-height: 320px; }
+@media (max-width: 950px) {
+    .clients-header .section-title { gap: .08em; }
+    .clients-header .section-title-text { line-height: 1.2; }
+}
