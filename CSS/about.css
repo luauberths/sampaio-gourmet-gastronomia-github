@@ -6,7 +6,6 @@
     .about-content { gap: 18px; }
 }
 
-/* Composição em duas colunas, inspirada na referência enviada. */
 .about-gallery {
     --gallery-offset: clamp(24px, 3.5vw, 44px);
     display: grid;
@@ -15,7 +14,7 @@
     row-gap: clamp(30px, 5vw, 56px);
     width: 100%;
     max-width: 720px;
-    margin: clamp(64px, 7vw, 88px) auto 0;
+    margin: clamp(32px, 4vw, 48px) auto 0;
     padding-bottom: var(--gallery-offset);
 }
 .about-gallery img {
@@ -35,7 +34,7 @@
         column-gap: 18px;
         row-gap: 30px;
         max-width: 440px;
-        margin-top: 56px;
+        margin-top: 32px;
     }
 }
 
