@@ -17,7 +17,7 @@
     background: transparent;
     box-shadow: none;
 }
-.menus-page .menu-choice:first-child { border-top: 1px solid var(--panel-border); }
+.menus-page .menu-choice:first-child { border-top: 0; }
 .menus-page .menu-choice:last-child { border-bottom: 0; }
 .menus-page .menu-choice-toggle {
     display: flex;
