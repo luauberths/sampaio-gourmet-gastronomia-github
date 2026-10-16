@@ -53,7 +53,12 @@
 
     <main class="page-section menus-section menus-page">
         <div class="page-header menus-header">
-            <h1 class="section-title">Nossos cardápios</h1>
+            <h1 class="section-title">
+                    <img src="Images/olive_branch.svg" class="title-branch" alt="" aria-hidden="true" width="80" height="80">
+                    <span class="section-title-text">Cardápios</span>
+                    <img src="Images/olive_branch.svg" class="title-branch title-branch-right" alt="" aria-hidden="true" width="80" height="80">
+                </h1>
+            <p class="menus-subtitle">Conheça as opções de cardápio que preparamos para tornar seu evento ainda mais especial.</p>
         </div>
 
 
@@ -601,7 +606,56 @@
         </div>
     </footer>
 
-    <script src="Javascript/main.js"></script>
+
+    <script>
+        (function () {
+            const cardapios = Array.from(document.querySelectorAll('.menus-page .menu-choice'));
+            const nav = document.querySelector('.nav-bar');
+            const reduzMovimento = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+            function rolarParaCardapio(cardapio) {
+                const titulo = cardapio.querySelector('.menu-choice-toggle');
+                if (!titulo) return;
+
+                const posicaoNav = nav ? window.getComputedStyle(nav).position : '';
+                const navFixa = posicaoNav === 'fixed' || posicaoNav === 'sticky';
+                const alturaNav = navFixa ? nav.getBoundingClientRect().height : 0;
+                const margem = 16;
+                const destino = window.scrollY + titulo.getBoundingClientRect().top - alturaNav - margem;
+
+                window.scrollTo({
+                    top: Math.max(0, destino),
+                    behavior: reduzMovimento.matches ? 'instant' : 'smooth'
+                });
+            }
+
+            cardapios.forEach(function (cardapio) {
+                const titulo = cardapio.querySelector('.menu-choice-toggle');
+                if (!titulo) return;
+
+                titulo.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    if (cardapio.open) {
+                        cardapio.open = false;
+                        return;
+                    }
+
+                    cardapios.forEach(function (outro) {
+                        if (outro !== cardapio) outro.open = false;
+                    });
+                    cardapio.open = true;
+
+                    requestAnimationFrame(function () {
+                        requestAnimationFrame(function () {
+                            if (cardapio.open) rolarParaCardapio(cardapio);
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+    <script src="Javascript/main.js?v=20261015-desktop-transitions"></script>
 </body>
 
 </html>
