@@ -201,3 +201,24 @@
     .menus-page .menu-panel-title { font-size: clamp(29px, 7.5vw, 35px); }
     .menus-page .menu-bullet-columns { columns: 1; }
 }
+
+/* Orientações exibidas no início de cada cardápio aberto. */
+.menus-page .menu-selection {
+    margin: 0 0 54px;
+    padding: 16px 20px;
+    border-left: 3px solid var(--gold);
+    border-radius: 0 10px 10px 0;
+    background: #f8f4ed;
+    color: var(--brown);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.65;
+    text-align: left;
+}
+.menus-page .menu-selection-title { margin: 0 0 8px; font-weight: 500; }
+.menus-page .menu-selection-list { margin: 0; padding-left: 20px; list-style: disc; }
+.menus-page .menu-selection-list li { margin: 2px 0; }
+.menus-page .menu-selection-extra { margin: 10px 0 0; font-weight: 500; }
+@media (max-width: 720px) {
+    .menus-page .menu-selection { padding: 14px 16px; }
+}
