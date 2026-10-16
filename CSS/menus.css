@@ -13,13 +13,14 @@
     min-width: 0;
     border: 0;
     border-radius: 14px;
-    background: #f3ede3;
+    --menu-surface: #f3ede3;
+    background: var(--menu-surface);
     box-shadow: none;
     transition: background-color .2s ease;
 }
 .menus-page .menu-choice:first-child { border-top: 0; }
 .menus-page .menu-choice:last-child { border-bottom: 0; }
-.menus-page .menu-choice[open] { background: #eee5d8; }
+.menus-page .menu-choice[open] { --menu-surface: #eee5d8; }
 .menus-page .menu-choice-toggle {
     display: flex;
     align-items: center;
@@ -97,7 +98,7 @@
     padding: 36px 22px 22px;
     border: 1px solid var(--panel-border-strong);
     border-radius: 10px;
-    background: var(--cream);
+    background: var(--menu-surface, var(--cream));
 }
 .menus-page .menu-panel-heading {
     display: flex;
@@ -107,7 +108,7 @@
     gap: 12px;
     margin: -67px 0 14px -5px;
     padding: 0 12px 0 0;
-    background: var(--cream);
+    background: var(--menu-surface, var(--cream));
 }
 .menus-page .menu-panel-title {
     font-family: 'Great Vibes', cursive;
