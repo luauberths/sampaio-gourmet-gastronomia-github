@@ -62,7 +62,15 @@
 .slide.active { opacity: 1; }
 @media (max-width: 950px) {
     .hero-content { align-items: center; width: 100%; text-align: center; }
-    .instagram-container, .mobile-logo-container { display: none; }
+    .mobile-logo-container { display: none; }
+    .instagram-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        width: 100%;
+        margin: 0 0 20px;
+    }
     .services-subtitle { justify-content: center; margin-bottom: 18px; }
     .hero-title { align-items: center; min-height: 0; font-size: clamp(30px, 6vw, 42px); line-height: 1.22; }
     .hero-description-container { margin-top: 18px; max-width: 680px; }
