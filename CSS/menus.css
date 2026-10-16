@@ -1,6 +1,6 @@
 .menus-page { display: flex; flex-direction: column; }
 .menus-page .menus-header { max-width: 900px; }
-/* Cartões suaves: fundo discreto, cantos arredondados e sem divisórias. */
+/* Cartões suaves apenas nos cabeçalhos; conteúdo com o layout original. */
 .menus-page .menus-container {
     display: flex;
     flex-direction: column;
@@ -13,14 +13,11 @@
     min-width: 0;
     border: 0;
     border-radius: 14px;
-    --menu-surface: #f3ede3;
-    background: var(--menu-surface);
+    background: transparent;
     box-shadow: none;
-    transition: background-color .2s ease;
 }
 .menus-page .menu-choice:first-child { border-top: 0; }
 .menus-page .menu-choice:last-child { border-bottom: 0; }
-.menus-page .menu-choice[open] { --menu-surface: #eee5d8; }
 .menus-page .menu-choice-toggle {
     display: flex;
     align-items: center;
@@ -31,8 +28,9 @@
     list-style: none;
     cursor: pointer;
     color: var(--brown);
-    background: transparent;
-    transition: color .2s ease;
+    background: #f3ede3;
+    border-radius: 14px;
+    transition: color .2s ease, background-color .2s ease;
 }
 .menus-page .menu-choice-toggle:focus-visible {
     outline: 2px solid var(--gold);
@@ -43,7 +41,7 @@
 .menus-page .menu-choice-toggle::marker { content: ''; }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
     color: var(--gold);
-    background-color: transparent;
+    background-color: #eee5d8;
 }
 .menus-page .menu-choice[open] > .menu-choice-toggle {
     border-bottom: 0;
@@ -98,7 +96,7 @@
     padding: 36px 22px 22px;
     border: 1px solid var(--panel-border-strong);
     border-radius: 10px;
-    background: var(--menu-surface, var(--cream));
+    background: var(--cream);
 }
 .menus-page .menu-panel-heading {
     display: flex;
@@ -108,7 +106,7 @@
     gap: 12px;
     margin: -67px 0 14px -5px;
     padding: 0 12px 0 0;
-    background: var(--menu-surface, var(--cream));
+    background: var(--cream);
 }
 .menus-page .menu-panel-title {
     font-family: 'Great Vibes', cursive;
