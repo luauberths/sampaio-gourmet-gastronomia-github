@@ -124,18 +124,17 @@
     }
 
     function initializeClientReviews() {
-        const clients = sectionContainer.querySelector('#clientes');
-        if (!clients) return;
-        // Scripts copiados por DOMParser são inertes: carregue a plataforma
-        // apenas depois de inserir o contêiner das avaliações no documento.
-        clients.querySelectorAll('script[src="https://elfsightcdn.com/platform.js"]')
-            .forEach(script => script.remove());
-        if (document.querySelector('script[data-sampaio-reviews]')) return;
+        const reviews = sectionContainer.querySelector('#clientes .clients-reviews');
+        if (!reviews || reviews.querySelector('script[data-sampaio-reviews]')) return;
+        // DOMParser não executa scripts. Recrie o carregador no próprio local
+        // das avaliações, pois o Trustindex usa esse ponto para inserir o widget.
+        reviews.querySelectorAll('script').forEach(script => script.remove());
         const script = document.createElement('script');
-        script.src = 'https://elfsightcdn.com/platform.js';
+        script.src = 'https://cdn.trustindex.io/loader.js?ed5ea6b839fd8098c446e333696';
         script.async = true;
+        script.defer = true;
         script.dataset.sampaioReviews = 'true';
-        document.body.appendChild(script);
+        reviews.appendChild(script);
     }
 
     async function loadSections() {
