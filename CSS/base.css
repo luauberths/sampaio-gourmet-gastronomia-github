@@ -146,3 +146,18 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
         height: .94em;
     }
 }
+
+/* Justificação restrita aos textos da apresentação, da história e dos parceiros. */
+.hero-description-container .section-description,
+.about-content .section-description,
+.partner-card p {
+    text-align: justify;
+    text-align-last: left;
+    text-justify: inter-word;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    hyphenate-limit-chars: 6 3 3;
+    word-spacing: normal;
+    letter-spacing: normal;
+    overflow-wrap: break-word;
+}
