@@ -42,7 +42,7 @@
     display: flex;
     width: max-content;
     height: 100%;
-    animation: mural-drift 75s linear infinite;
+    animation: mural-drift 40s linear infinite;
 }
 .mural-row:last-child .mural-track { animation-direction: reverse; }
 .mural-set {
